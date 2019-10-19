@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Automation;
 
 namespace SayVOICEROID2
@@ -25,6 +26,11 @@ namespace SayVOICEROID2
                 new PropertyCondition(AutomationElement.NameProperty, "VOICEROID2*")
             };
             var form = root.FindFirst(TreeScope.Element | TreeScope.Children, new OrCondition(titleConditions));
+            if (form == null)
+            {
+                Console.Error.WriteLine("VOICEROID2のウィンドウが見つかりません。VOICEROID2を起動してください");
+                return;
+            }
 
             // 喋らせたいフレーズをセットする
             var textEditView = form.FindFirst(
