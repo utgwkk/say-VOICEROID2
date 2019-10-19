@@ -4,6 +4,8 @@ VOICEROID2をmacのsayコマンドのように使う
 
 ## 使い方
 
+先にVOICEROID2を立ち上げておいてください。
+
 ```
 $ ./sayVOICEROID2.exe 'こんにちは'
 ```
