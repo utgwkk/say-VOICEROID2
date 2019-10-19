@@ -10,7 +10,7 @@ namespace SayVOICEROID2
         {
             string phrase;
             if (args.Length < 1)
-                phrase = "引数が指定されていません";
+                phrase = Console.In.ReadToEnd();
             else
                 phrase = args[0];
 
