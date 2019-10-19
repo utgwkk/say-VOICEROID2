@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Threading;
 using System.Windows.Automation;
 
@@ -10,7 +12,10 @@ namespace SayVOICEROID2
         {
             string phrase;
             if (args.Length < 1)
-                phrase = Console.In.ReadToEnd();
+            {
+                using (var sr = new StreamReader(Console.OpenStandardInput(), Encoding.UTF8))
+                    phrase = sr.ReadToEnd();
+            }
             else
                 phrase = args[0];
 
