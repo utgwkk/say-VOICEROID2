@@ -24,9 +24,9 @@ namespace SayVOICEROID2
                 new PropertyCondition(AutomationElement.NameProperty, "VOICEROID2"),
                 new PropertyCondition(AutomationElement.NameProperty, "VOICEROID2*")
             };
+            var form = root.FindFirst(TreeScope.Element | TreeScope.Children, new OrCondition(titleConditions));
 
             // 喋らせたいフレーズをセットする
-            var form = root.FindFirst(TreeScope.Element | TreeScope.Children, new OrCondition(titleConditions));
             var textEditView = form.FindFirst(
                 TreeScope.Element | TreeScope.Children,
                 new PropertyCondition(AutomationElement.ClassNameProperty, "TextEditView")
